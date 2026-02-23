@@ -1,0 +1,18 @@
+<html>
+<head>
+    <script src="https://unpkg.com/@eyevinn/whep-video-component@latest/dist/whep-video.component.js"></script>
+</head>
+<body>
+    <whep-video id="video" muted autoplay></whep-video>
+    <label for="width">Width</label>
+    <input type="number" id="width" name="width" min="100" max="1080" />
+    <script>
+	let width = 320;
+	let height = 240;
+	const widthEl = document.getElementById("width");
+	widthEl.addEventListener("change", (e) => width = e.target.value);
+	const options = `rtptransport=tcp&timeout=60&width=${width}&height=${height}`
+	video.setAttribute('src', `${location.origin}:8000/api/whep?url=videocap://0&options=${encodeURI(options)}`);
+    </script>
+</body>
+</html>

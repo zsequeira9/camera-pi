@@ -1,10 +1,13 @@
 services:
   web-rtc-stream: 
     image: mpromonet/webrtc-streamer
-    # ports: 
-    #  - 8000:8000
     devices: 
       - /dev/video0:/dev/video0
     volumes:
       - ./config.json:/usr/local/share/webrtc-streamer/config.json
+    network_mode: "host"
+  nginx:
+    image: nginx
+    volumes:
+      - ./app/src/public:/usr/share/nginx/html
     network_mode: "host"

@@ -1,10 +1,9 @@
 {
 	"urls" : 
 	{
-		"Microdia Webcam Vitade AF" : 
+		"USB Camera" : 
 		{
 			"video" : "videocap://0"
-		},
-		
+		}		
 	}
 }
