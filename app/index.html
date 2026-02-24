@@ -1,6 +1,7 @@
 <html>
 <head>
     <script src="https://unpkg.com/@eyevinn/whep-video-component@latest/dist/whep-video.component.js"></script>
+    <script src="config.js"></script>
 </head>
 <body>
     <whep-video id="video" muted autoplay></whep-video>
@@ -12,7 +13,7 @@
 	const widthEl = document.getElementById("width");
 	widthEl.addEventListener("change", (e) => width = e.target.value);
 	const options = `rtptransport=tcp&timeout=60&width=${width}&height=${height}`
-	video.setAttribute('src', `${location.origin}:8000/api/whep?url=videocap://0&options=${encodeURI(options)}`);
+	video.setAttribute('src', `http://${location.hostname}:8000/api/whep?url=videocap://${DEVICE}&options=${encodeURI(options)}`);
     </script>
 </body>
 </html>

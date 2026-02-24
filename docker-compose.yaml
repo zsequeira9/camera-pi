@@ -1,13 +1,15 @@
 services:
   web-rtc-stream: 
-    image: mpromonet/webrtc-streamer
+    build:
+      dockerfile:
+        stream.Dockerfile
     devices: 
-      - /dev/video0:/dev/video0
-    volumes:
-      - ./config.json:/usr/local/share/webrtc-streamer/config.json
+      - /dev/video${DEVICE}:/dev/video${DEVICE}
     network_mode: "host"
-  nginx:
-    image: nginx
-    volumes:
-      - ./app/src/public:/usr/share/nginx/html
+  web:
+    build: 
+      dockerfile:
+        web.Dockerfile
+      args:
+        - DEVICE=${DEVICE}
     network_mode: "host"

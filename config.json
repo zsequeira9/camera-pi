@@ -1,9 +1,0 @@
-{
-	"urls" : 
-	{
-		"USB Camera" : 
-		{
-			"video" : "videocap://0"
-		}		
-	}
-}
